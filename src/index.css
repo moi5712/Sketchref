@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  --ui-page-bg: rgb(255 255 255);
+  --ui-page-fg: rgb(23 23 23);
+  --ui-muted-fg: rgb(115 115 115);
+  --ui-faint-fg: rgb(163 163 163);
+  --ui-border: rgb(229 229 229);
+  --ui-panel-bg: rgb(255 255 255);
+  --ui-soft-bg: rgb(245 245 245);
+  --ui-hover-bg: rgb(250 250 250);
+  --ui-focus-ring: rgb(115 115 115 / 30%);
+  --ui-transition-ms: 300ms;
+  --ui-transition-ease: cubic-bezier(0.2, 0, 0, 1);
+  --ui-segment-transition-ms: 420ms;
+  --ui-color-danger: rgb(239 68 68);
+}
+
+.dark {
+  --ui-page-bg: rgb(10 10 10);
+  --ui-page-fg: rgb(250 250 250);
+  --ui-muted-fg: rgb(163 163 163);
+  --ui-faint-fg: rgb(115 115 115);
+  --ui-border: rgb(38 38 38);
+  --ui-panel-bg: rgb(10 10 10);
+  --ui-soft-bg: rgb(23 23 23);
+  --ui-hover-bg: rgb(18 18 18);
+  --ui-focus-ring: rgb(212 212 212 / 28%);
+  --ui-color-danger: rgb(248 113 113);
+}
+
+/* Use one shared duration for transition utilities without explicit duration classes */
+[class*="transition-"]:not([class*="duration-"]) {
+  transition-duration: var(--ui-transition-ms);
+  transition-timing-function: var(--ui-transition-ease);
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+body {
+  background: var(--ui-page-bg);
+  color: var(--ui-page-fg);
+  @apply transition-colors duration-300;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Prevent mixed transition timings from causing flicker while toggling theme */
+.theme-switching *,
+.theme-switching {
+  transition: none !important;
+}
+
+/* Hide scrollbar for a cleaner minimal look */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-200 dark:bg-neutral-800 rounded-full;
+}

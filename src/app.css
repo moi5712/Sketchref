@@ -1,0 +1,578 @@
+@import "tailwindcss" reference;
+
+/* App-level reusable UI styles */
+
+.app-shell {
+  @apply min-h-screen font-sans transition-colors;
+  background: var(--ui-page-bg);
+  color: var(--ui-page-fg);
+}
+
+.app-header {
+  @apply fixed top-0 right-0 z-10 mx-auto flex w-full max-w-6xl items-center px-5 py-4 sm:px-6 pointer-events-none backdrop-blur-sm;
+  background: color-mix(in srgb, var(--ui-page-bg) 88%, transparent);
+}
+
+.app-main {
+  @apply mx-auto flex w-full max-w-6xl flex-col px-5 pb-14 pt-28 sm:px-6;
+}
+
+.ui-heading-hero {
+  @apply text-4xl sm:text-6xl font-medium tracking-normal;
+}
+
+.ui-heading-page {
+  @apply mt-3 text-3xl sm:text-4xl font-medium truncate;
+}
+
+.ui-body-muted {
+  @apply text-neutral-500 dark:text-neutral-400;
+}
+
+.home-hero {
+  @apply mb-16 grid w-full items-start gap-12 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-20;
+}
+
+.home-intro {
+  @apply flex max-w-2xl flex-col gap-8;
+}
+
+.ui-motion {
+  @apply transition-colors transition-opacity transition-transform;
+}
+
+.header-icon-btn {
+  @apply p-2 rounded-md pointer-events-auto shadow-none bg-transparent text-neutral-600 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900;
+}
+
+.header-lang-btn {
+  @apply px-3 h-[38px] rounded-md pointer-events-auto shadow-none bg-transparent text-sm font-medium text-neutral-600 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900;
+}
+
+.ui-surface-outline {
+  @apply border border-neutral-200 dark:border-neutral-800 bg-transparent;
+}
+
+.ui-surface-fill {
+  @apply bg-white dark:bg-neutral-950 border-0;
+}
+
+.ui-dropdown-panel {
+  @apply bg-transparent border border-neutral-200 dark:border-neutral-800 origin-top;
+}
+
+.ui-empty-panel {
+  @apply flex min-h-48 w-full flex-col items-center justify-center bg-transparent px-6 py-12 text-center;
+}
+
+.ui-source-panel {
+  @apply border border-neutral-200 dark:border-neutral-800 bg-transparent p-4 sm:p-5 rounded-md;
+}
+
+.ui-source-option {
+  @apply w-full border border-neutral-200 dark:border-neutral-800 bg-transparent p-3.5 rounded-md flex items-center gap-3 text-left hover:border-neutral-900 dark:hover:border-neutral-100 transition-colors transition-opacity transition-transform;
+}
+
+.ui-source-option-icon {
+  @apply w-9 h-9 shrink-0 flex items-center justify-center rounded-md bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300;
+}
+
+.ui-source-option-meta {
+  @apply mt-0.5 block text-xs leading-5 text-neutral-400;
+}
+
+.board-grid {
+  @apply grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4;
+}
+
+.ui-board-card {
+  @apply relative cursor-pointer bg-transparent rounded-md flex flex-col gap-3 transition-colors transition-opacity transition-transform;
+}
+
+.ui-board-cover {
+  @apply relative aspect-[4/3] w-full rounded-md overflow-hidden grid grid-cols-2;
+  background: var(--ui-soft-bg);
+}
+
+.ui-board-cover:has(img:only-child) {
+  @apply block;
+}
+
+.ui-board-cover > svg {
+  @apply col-span-2 row-span-2 place-self-center;
+}
+
+.ui-board-cover img {
+  @apply min-h-0 min-w-0;
+  image-rendering: auto;
+}
+
+.ui-board-meta {
+  @apply min-w-0 px-1 pb-1;
+}
+
+.ui-modal-overlay {
+  @apply fixed inset-0 z-40 flex items-center justify-center p-6;
+}
+
+.ui-modal-backdrop {
+  @apply absolute inset-0 bg-black/25 dark:bg-black/45;
+}
+
+.ui-modal-panel {
+  @apply relative w-full p-6 sm:p-8 bg-white dark:bg-neutral-950 border-0 rounded-md max-h-[calc(100vh-3rem)] overflow-y-auto shadow-2xl shadow-black/10 dark:shadow-black/40;
+  transform-origin: top center;
+}
+
+.ui-modal-panel-md {
+  @apply max-w-md;
+}
+
+.ui-modal-panel-flush-bottom {
+  @apply pb-3 sm:pb-4;
+}
+
+.ui-modal-panel-lg {
+  @apply max-w-2xl;
+}
+
+.ui-modal-form {
+  @apply flex w-full flex-col gap-6;
+}
+
+.ui-modal-title {
+  @apply w-full text-left;
+}
+
+.ui-modal-actions {
+  @apply flex w-full items-center justify-end gap-3 pt-1;
+}
+
+.ui-input-underline {
+  @apply w-full bg-transparent border-b border-neutral-300 px-0 py-3 text-base outline-none transition-colors transition-opacity transition-transform placeholder-neutral-400 focus:border-neutral-900 dark:border-neutral-800 dark:placeholder-neutral-600 dark:focus:border-neutral-100;
+}
+
+.ui-field-label {
+  @apply mb-2 block text-xs font-medium uppercase text-neutral-400 tracking-normal;
+}
+
+.ui-btn-primary {
+  @apply px-6 py-3 rounded-md border-0 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 hover:opacity-80 transition-colors transition-opacity transition-transform disabled:opacity-50 disabled:cursor-not-allowed text-sm font-medium;
+}
+
+.ui-btn-secondary {
+  @apply px-6 py-3 rounded-md border border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-300 hover:border-neutral-900 dark:hover:border-neutral-100 transition-colors transition-opacity transition-transform text-sm font-medium;
+}
+
+.ui-btn-cancel {
+  @apply px-6 py-3 rounded-md border-0 text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white transition-colors transition-opacity transition-transform text-sm font-medium;
+}
+
+.ui-btn-primary-pill {
+  @apply px-8 py-3 rounded-full border-0 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 hover:opacity-80 transition-colors transition-opacity transition-transform text-base font-medium;
+}
+
+.ui-menu-option-btn {
+  @apply w-full py-2 px-3 rounded-md text-sm text-center hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors transition-opacity transition-transform;
+}
+
+.ui-upload-btn {
+  @apply w-full py-3 rounded-md border-0 bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors transition-opacity transition-transform text-sm font-medium text-center cursor-pointer flex items-center justify-center gap-2;
+}
+
+.ui-upload-btn-outline {
+  @apply border border-neutral-200 dark:border-neutral-800 hover:border-neutral-900 dark:hover:border-neutral-100 hover:bg-transparent;
+}
+
+.ui-upload-preview-grid {
+  @apply grid max-h-52 w-full grid-cols-4 gap-2 overflow-y-auto;
+}
+
+.ui-upload-preview-item {
+  @apply relative aspect-square overflow-hidden rounded bg-neutral-100 dark:bg-neutral-900;
+}
+
+.ui-modal-image-grid {
+  @apply grid max-h-72 w-full grid-cols-4 gap-2 overflow-y-auto;
+}
+
+.ui-modal-image-drag-item {
+  @apply relative aspect-square cursor-move overflow-hidden border border-neutral-200 transition-colors transition-opacity transition-transform dark:border-neutral-800;
+}
+
+.ui-modal-image-thumb {
+  @apply h-full w-full object-cover;
+  image-rendering: auto;
+}
+
+.ui-saved-board-list {
+  @apply flex max-h-96 w-full flex-col gap-2 overflow-y-auto pr-1;
+}
+
+.ui-saved-board-row {
+  @apply flex w-full items-center gap-3 rounded-md border border-neutral-200 bg-transparent p-2.5 text-left transition-colors hover:border-neutral-900 dark:border-neutral-800 dark:hover:border-neutral-100;
+}
+
+.ui-saved-board-row-selected {
+  @apply border-neutral-900 dark:border-neutral-100;
+}
+
+.ui-saved-board-check {
+  @apply flex h-5 w-5 shrink-0 items-center justify-center rounded border border-neutral-300 text-xs text-neutral-900 dark:border-neutral-700 dark:text-white;
+}
+
+.ui-saved-board-cover {
+  @apply flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded bg-neutral-100 dark:bg-neutral-900;
+}
+
+.ui-saved-board-cover img {
+  @apply h-full w-full object-cover;
+  image-rendering: auto;
+}
+
+.ui-error-message {
+  @apply max-h-32 overflow-y-auto break-words rounded-md border border-red-200 bg-red-50 p-3 text-sm leading-6 text-red-600 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-300;
+}
+
+.ui-btn-text {
+  @apply text-sm text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors transition-opacity;
+}
+
+.ui-btn-danger-text {
+  @apply px-0 py-3 text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300;
+}
+
+.ui-segment {
+  @apply flex gap-2 w-full justify-center text-sm border border-neutral-200 dark:border-neutral-800 p-1 rounded-md;
+}
+
+.ui-segment-slider {
+  @apply relative gap-0 overflow-hidden;
+}
+
+.ui-segment-slider-indicator {
+  @apply absolute top-1 bottom-1 left-1 rounded-sm bg-neutral-900 dark:bg-white transition-transform;
+  transition-duration: var(--ui-segment-transition-ms);
+  transition-timing-function: var(--ui-transition-ease);
+}
+
+.ui-segment-option {
+  @apply py-2 px-4 rounded-sm transition-colors transition-opacity transition-transform flex-1 flex justify-center items-center gap-2;
+}
+
+.ui-segment-option-active {
+  @apply bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 font-medium;
+}
+
+.ui-segment-option-inactive {
+  @apply text-neutral-500 hover:text-neutral-900 dark:hover:text-white;
+}
+
+.ui-settings-group {
+  @apply flex flex-col gap-2;
+}
+
+.ui-thumb-grid {
+  @apply grid w-full grid-cols-3 gap-2 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8;
+}
+
+.ui-image-thumb {
+  @apply relative aspect-square cursor-pointer overflow-hidden rounded bg-neutral-100 dark:bg-neutral-900;
+}
+
+.ui-image-thumb img {
+  @apply h-full w-full object-cover transition-opacity;
+  image-rendering: auto;
+}
+
+.ui-icon-danger {
+  @apply absolute top-2 right-2 z-10 flex h-8 w-8 items-center justify-center rounded-md bg-white/90 text-neutral-500 opacity-0 shadow-sm shadow-black/5 hover:text-red-500 group-hover:opacity-100 dark:bg-neutral-950/90;
+}
+
+.ui-thumb-remove-btn {
+  @apply absolute top-1.5 right-1.5 flex h-7 w-7 items-center justify-center rounded-md bg-neutral-950/70 text-white hover:bg-neutral-950/90 dark:bg-neutral-950/80 dark:hover:bg-neutral-800 transition-colors;
+}
+
+.ui-switch-row {
+  @apply w-full rounded-md p-3 flex items-center justify-between text-sm cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors;
+}
+
+.ui-switch-track {
+  @apply relative w-12 h-7 rounded-full transition-colors;
+}
+
+.ui-switch-track-on {
+  @apply bg-neutral-900 dark:bg-white;
+}
+
+.ui-switch-track-off {
+  @apply bg-neutral-300 dark:bg-neutral-700;
+}
+
+.ui-switch-knob {
+  @apply absolute top-1 left-1 w-5 h-5 rounded-full bg-white dark:bg-neutral-900 transition-transform;
+}
+
+.drawing-controls {
+  @apply w-full min-h-16 shrink-0 flex items-center justify-center gap-2 sm:gap-3 px-3 sm:px-4 py-3 border-t;
+  background: color-mix(in srgb, var(--ui-page-bg) 94%, transparent);
+  border-color: var(--ui-border);
+}
+
+.drawing-stage {
+  @apply flex-1 min-h-0 w-full overflow-hidden relative;
+}
+
+.drawing-stage-split {
+  @apply grid gap-0 md:grid-cols-2;
+}
+
+.drawing-board-panel {
+  @apply relative z-10 flex min-h-0 flex-col border-r border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950;
+}
+
+.drawing-reference-panel {
+  @apply relative h-full min-h-0 w-full overflow-hidden;
+}
+
+.drawing-board-toolbar {
+  @apply absolute left-3 top-16 z-20 flex w-14 flex-col items-center gap-2 rounded-2xl border border-neutral-200 bg-white/95 p-2 text-xs shadow-lg shadow-black/10 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/95 dark:shadow-black/35;
+}
+
+.drawing-board-toolbar-collapsed {
+  @apply p-2;
+}
+
+.drawing-board-toolbar-collapsed > :not(:first-child) {
+  display: none;
+}
+
+.drawing-toolbar-divider {
+  @apply h-px w-8 bg-neutral-200 dark:bg-neutral-800;
+}
+
+.drawing-tool-btn {
+  @apply flex h-9 w-9 items-center justify-center rounded-md text-neutral-700 outline-none transition-colors hover:bg-neutral-100 disabled:cursor-not-allowed disabled:opacity-35 dark:text-neutral-300 dark:hover:bg-neutral-900;
+}
+
+.drawing-tool-btn:focus,
+.drawing-tool-btn:focus-visible,
+.drawing-tool-btn:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.drawing-tool-btn-active {
+  @apply bg-neutral-900 text-white hover:bg-neutral-900 dark:bg-white dark:text-neutral-900 dark:hover:bg-white;
+}
+
+.drawing-tool-btn-danger {
+  color: var(--ui-color-danger);
+}
+
+.drawing-tool-field {
+  @apply flex flex-col items-center gap-2 rounded-md px-1 py-1 text-[10px] leading-none text-neutral-500 dark:text-neutral-400;
+}
+
+.drawing-tool-field input[type="range"] {
+  @apply h-28 w-5 cursor-pointer bg-transparent;
+  appearance: none;
+  writing-mode: vertical-lr;
+  direction: rtl;
+}
+
+.drawing-tool-field input[type="range"]::-webkit-slider-runnable-track {
+  @apply rounded-full bg-neutral-200 dark:bg-neutral-800;
+  width: 4px;
+  height: 7rem;
+}
+
+.drawing-tool-field input[type="range"]::-webkit-slider-thumb {
+  @apply rounded-full bg-neutral-950 shadow-md shadow-black/20 dark:bg-white dark:shadow-black/35;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-left: -6px;
+}
+
+.drawing-tool-field input[type="range"]::-moz-range-track {
+  @apply rounded-full bg-neutral-200 dark:bg-neutral-800;
+  width: 4px;
+  height: 7rem;
+}
+
+.drawing-tool-field input[type="range"]::-moz-range-progress {
+  @apply rounded-full bg-neutral-950 dark:bg-white;
+}
+
+.drawing-tool-field input[type="range"]::-moz-range-thumb {
+  @apply rounded-full border-0 bg-neutral-950 shadow-md shadow-black/20 dark:bg-white dark:shadow-black/35;
+  width: 16px;
+  height: 16px;
+}
+
+.drawing-tool-field input[type="range"]:hover::-webkit-slider-thumb,
+.drawing-tool-field input[type="range"]:focus-visible::-webkit-slider-thumb {
+  @apply scale-110;
+}
+
+.drawing-tool-field input[type="range"]:hover::-moz-range-thumb,
+.drawing-tool-field input[type="range"]:focus-visible::-moz-range-thumb {
+  @apply scale-110;
+}
+
+.drawing-tool-field input[type="color"] {
+  @apply h-9 w-9 cursor-pointer overflow-hidden rounded-full border-1 border-neutral-300 bg-white p-1 dark:border-neutral-700 dark:bg-neutral-950;
+}
+
+.drawing-tool-field input[type="color"]::-webkit-color-swatch-wrapper {
+  @apply p-0;
+}
+
+.drawing-tool-field input[type="color"]::-webkit-color-swatch {
+  @apply rounded-full border-0;
+}
+
+.drawing-tool-field input[type="color"]::-moz-color-swatch {
+  @apply rounded-full border-0;
+}
+
+.drawing-tool-field input[type="range"]:focus,
+.drawing-tool-field input[type="range"]:focus-visible,
+.drawing-tool-field input[type="color"]:focus,
+.drawing-tool-field input[type="color"]:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.drawing-tool-field strong {
+  @apply text-center font-medium text-neutral-700 dark:text-neutral-300;
+}
+
+.drawing-tool-field-compact {
+  @apply gap-1.5;
+}
+
+.drawing-board-canvas {
+  @apply min-h-0 flex-1 cursor-crosshair bg-white touch-none;
+  touch-action: none;
+}
+
+.drawing-control-btn {
+  @apply min-h-10 px-2 sm:px-3 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors transition-opacity transition-transform rounded-md flex items-center justify-center gap-2 text-xs sm:text-sm disabled:cursor-not-allowed disabled:opacity-40;
+}
+
+.drawing-control-btn-active {
+  @apply bg-neutral-900 text-white hover:bg-neutral-900 dark:bg-white dark:text-neutral-900 dark:hover:bg-white;
+}
+
+.drawing-control-btn-active img {
+  filter: invert(1);
+}
+
+.dark .drawing-control-btn-active img {
+  filter: none;
+}
+
+.drawing-control-btn-main {
+  @apply min-h-11 min-w-11 px-3 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 hover:opacity-85 transition-colors transition-opacity transition-transform rounded-md flex items-center justify-center;
+}
+
+.drawing-control-btn-danger {
+  color: var(--ui-color-danger);
+}
+
+.drawing-timer {
+  @apply absolute top-5 right-5 z-40 font-mono text-sm px-3 py-2 rounded-md bg-white/85 dark:bg-neutral-950/85 text-neutral-600 dark:text-neutral-300 border-0 backdrop-blur-sm;
+}
+
+.image-viewer-overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-neutral-950;
+}
+
+.image-viewer-backdrop {
+  @apply absolute inset-0 cursor-default;
+}
+
+.image-viewer-panel {
+  @apply relative z-10 flex h-full w-full flex-col;
+}
+
+.image-viewer-close {
+  @apply absolute right-5 top-5 z-30 flex h-10 w-10 items-center justify-center rounded-md text-neutral-500 transition-colors hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-white;
+}
+
+.image-viewer-stage {
+  @apply relative flex-1 min-h-0 overflow-hidden;
+}
+
+.image-viewer-reference,
+.image-viewer-layer {
+  @apply absolute inset-0 h-full w-full object-contain pointer-events-none;
+}
+
+.image-viewer-layer {
+  @apply opacity-50;
+}
+
+.image-viewer-layer-interactive {
+  @apply pointer-events-auto select-none;
+}
+
+.image-viewer-controls {
+  @apply w-full min-h-16 shrink-0 flex items-center justify-center gap-2 sm:gap-3 px-3 sm:px-4 py-3 border-t;
+  background: color-mix(in srgb, var(--ui-page-bg) 94%, transparent);
+  border-color: var(--ui-border);
+}
+
+.ui-motion,
+.header-icon-btn,
+.header-lang-btn,
+.ui-source-option,
+.ui-board-card,
+.ui-btn-text,
+.ui-input-underline,
+.ui-btn-primary,
+.ui-btn-secondary,
+.ui-btn-cancel,
+.ui-btn-primary-pill,
+.ui-upload-btn,
+.ui-menu-option-btn,
+.ui-segment-option,
+.drawing-control-btn,
+.drawing-control-btn-main {
+  transition-property: background-color, border-color, color, opacity, box-shadow, filter;
+  transition-duration: var(--ui-transition-ms);
+  transition-timing-function: var(--ui-transition-ease);
+}
+
+.header-icon-btn:active:not(:disabled),
+.header-lang-btn:active:not(:disabled),
+.ui-btn-text:active:not(:disabled),
+.ui-btn-primary:active:not(:disabled),
+.ui-btn-secondary:active:not(:disabled),
+.ui-btn-cancel:active:not(:disabled),
+.ui-btn-primary-pill:active:not(:disabled),
+.ui-upload-btn:active:not(:disabled),
+.ui-menu-option-btn:active:not(:disabled),
+.ui-segment-option:active:not(:disabled),
+.drawing-control-btn:active:not(:disabled),
+.drawing-control-btn-main:active:not(:disabled) {
+  filter: brightness(0.96);
+}
+
+.header-icon-btn:focus-visible,
+.header-lang-btn:focus-visible,
+.ui-btn-text:focus-visible,
+.ui-btn-primary:focus-visible,
+.ui-btn-secondary:focus-visible,
+.ui-btn-cancel:focus-visible,
+.ui-btn-primary-pill:focus-visible,
+.ui-upload-btn:focus-visible,
+.ui-menu-option-btn:focus-visible,
+.ui-segment-option:focus-visible,
+.drawing-control-btn:focus-visible,
+.drawing-control-btn-main:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ui-focus-ring);
+}
