@@ -134,10 +134,10 @@ export default function DrawingView({
   const sessionProgressLabel = `${completedPracticeCount}/${targetPracticeCount}`;
 
   return (
-    <div className="fixed inset-0 bg-white dark:bg-neutral-950 flex flex-col select-none cursor-auto">
-      <div className="absolute top-0 left-0 w-full h-1 bg-neutral-100 dark:bg-neutral-900 z-50">
+    <div className="drawing-screen fixed inset-0 flex flex-col select-none cursor-auto">
+      <div className="drawing-progress-track absolute top-0 left-0 w-full h-1 z-50">
         <div
-          className="h-full bg-neutral-900 dark:bg-neutral-100 transition-[width] ease-linear duration-1000"
+          className="drawing-progress-bar h-full transition-[width] ease-linear duration-1000"
           style={{ width: `${progressPercent}%` }}
         />
       </div>
@@ -277,7 +277,7 @@ export default function DrawingView({
           <span className="hidden sm:inline">{t.nextImage}</span>
         </button>
 
-        <div className="w-px h-6 bg-neutral-200 dark:bg-neutral-800 mx-2" />
+        <div className="ui-divider w-px h-6 mx-2" />
 
         <button
           onClick={toggleDrawingBoard}
@@ -298,7 +298,7 @@ export default function DrawingView({
 
       <div className="drawing-timer">
         {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}
-        <span className="ml-3 text-sm text-neutral-400">{sessionProgressLabel}</span>
+        <span className="drawing-timer-progress ml-3 text-sm">{sessionProgressLabel}</span>
       </div>
     </div>
   );

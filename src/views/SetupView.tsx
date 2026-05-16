@@ -281,17 +281,17 @@ export default function SetupView({
         <section className="grid lg:grid-cols-[1fr_18rem] gap-8 lg:gap-12 items-end">
           <div className="min-w-0">
             <h1 className="ui-heading-page">{board.name}</h1>
-            <div className="mt-5 grid grid-cols-3 max-w-md divide-x divide-neutral-200 dark:divide-neutral-800 text-sm">
+            <div className="ui-stat-grid mt-5 grid grid-cols-3 max-w-md text-sm">
               <div className="pr-4">
-                <p className="text-neutral-400">{t.imagesLabel}</p>
+                <p className="ui-body-faint">{t.imagesLabel}</p>
                 <p className="mt-1 font-medium">{board.images.length}</p>
               </div>
               <div className="px-4">
-                <p className="text-neutral-400">{t.practicedCount}</p>
+                <p className="ui-body-faint">{t.practicedCount}</p>
                 <p className="mt-1 font-medium">{drawnImages.length}</p>
               </div>
               <div className="pl-4">
-                <p className="text-neutral-400">{t.progress}</p>
+                <p className="ui-body-faint">{t.progress}</p>
                 <p className="mt-1 font-medium">{practicedPercent}%</p>
               </div>
             </div>
@@ -311,7 +311,7 @@ export default function SetupView({
 
         <section className="w-full flex flex-col">
           <div className="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between mb-5 gap-3">
-            <p className="text-sm text-neutral-500 dark:text-neutral-400">{t.previewHint}</p>
+            <p className="ui-body-muted text-sm">{t.previewHint}</p>
             <div className="flex items-center gap-4">
               {isCustomBoard && (
                 <button
@@ -371,7 +371,7 @@ export default function SetupView({
             <div className="w-full flex flex-col gap-6">
               <div className="text-center">
                 <h2 className="text-lg font-medium">{t.settingsTitle}</h2>
-                <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">{t.boardReady}</p>
+                <p className="ui-body-muted mt-2 text-sm">{t.boardReady}</p>
               </div>
 
               <div className="ui-settings-group">
@@ -442,7 +442,7 @@ export default function SetupView({
                 aria-pressed={skipPracticedImages}
                 title={t.skipPracticedImages}
               >
-                <span className="text-neutral-600 dark:text-neutral-300">{t.skipPracticedImages}</span>
+                <span className="ui-body-muted">{t.skipPracticedImages}</span>
                 <span
                   className={`ui-switch-track ${
                     skipPracticedImages
@@ -560,7 +560,7 @@ export default function SetupView({
                 <SkipForward size={20} />
                 <span className="hidden sm:inline">{t.nextImage}</span>
               </button>
-              <div className="w-px h-6 bg-neutral-200 dark:bg-neutral-800 mx-2" />
+              <div className="ui-divider w-px h-6 mx-2" />
               <button
                 type="button"
                 onClick={toggleDrawingOverlay}
@@ -640,7 +640,7 @@ export default function SetupView({
                 />
               </label>
 
-              <p className="text-xs text-neutral-500">
+              <p className="ui-body-muted text-xs">
                 {editBoardImages.length}{t.selectedImages}
               </p>
 
@@ -720,7 +720,7 @@ export default function SetupView({
             <div className="ui-modal-form">
               <div className="ui-modal-title">
                 <h2 className="text-lg font-medium">{t.confirmRemoveBoardTitle}</h2>
-                <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
+                <p className="ui-body-muted mt-2 text-sm">
                   {t.confirmRemoveBoardMessage}
                 </p>
               </div>

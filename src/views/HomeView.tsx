@@ -181,7 +181,7 @@ export default function HomeView({
               </label>
               {customImages.length > 0 && (
                 <div className="w-full flex flex-col gap-2">
-                  <p className="w-full text-left text-xs text-neutral-500">
+                  <p className="ui-body-muted w-full text-left text-xs">
                     {customImages.length}{t.selectedImages}
                   </p>
                   <div className="ui-modal-image-grid">
@@ -245,7 +245,7 @@ export default function HomeView({
         {boards.length > 0 && (
           <div className="mb-5 flex items-center justify-between gap-4">
             <h2 className="text-sm font-medium">{t.yourBoards}</h2>
-            <p className="text-xs text-neutral-400">
+            <p className="ui-body-faint text-xs">
               {locale === 'zh-TW' ? `${boards.length} 個圖版` : `${boards.length} boards`}
             </p>
           </div>
@@ -267,7 +267,7 @@ export default function HomeView({
                     title={t.removeBoard}
                     aria-label={t.removeBoard}
                   >
-                    <Trash2 size={16} className="text-neutral-500" />
+                    <Trash2 size={16} className="ui-icon-muted" />
                   </button>
                   <div className="ui-board-cover">
                     {coverImages.length > 0 ? (
@@ -275,12 +275,12 @@ export default function HomeView({
                         <img key={`${b.id}-${idx}`} src={img} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" />
                       ))
                     ) : (
-                      <ImagePlus size={28} className="text-neutral-300 dark:text-neutral-700" />
+                      <ImagePlus size={28} className="ui-empty-icon" />
                     )}
                   </div>
                   <div className="ui-board-meta">
                     <p className="font-medium text-sm truncate">{b.name}</p>
-                    <p className="text-xs text-neutral-500 mt-1">
+                    <p className="ui-body-muted text-xs mt-1">
                       {locale === 'zh-TW'
                         ? `${b.images.length} 張圖片 · ${practiced} ${t.practicedCount}`
                         : `${b.images.length} images · ${practiced} ${t.practicedCount}`}
@@ -294,7 +294,7 @@ export default function HomeView({
           <div className="w-full">
             <div className="ui-empty-panel">
               <p className="text-base font-medium">{t.emptyTitle}</p>
-              <p className="mt-3 text-sm leading-6 text-neutral-500 dark:text-neutral-400">
+              <p className="ui-body-muted mt-3 text-sm leading-6">
                 {t.emptyDescription}
               </p>
             </div>
@@ -314,7 +314,7 @@ export default function HomeView({
             <div className="ui-modal-form">
               <div className="ui-modal-title">
                 <h2 className="text-lg font-medium">{t.confirmRemoveBoardTitle}</h2>
-                <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
+                <p className="ui-body-muted mt-2 text-sm">
                   {t.confirmRemoveBoardMessage}
                 </p>
               </div>

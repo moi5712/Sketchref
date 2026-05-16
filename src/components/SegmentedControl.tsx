@@ -23,7 +23,7 @@ export default function SegmentedControl<T extends SegmentValue>({
   onChange,
   className = '',
   optionClassName = '',
-  activeClassName = 'text-white dark:text-neutral-900 font-medium',
+  activeClassName = 'ui-segment-option-active font-medium',
   inactiveClassName = 'ui-segment-option-inactive',
 }: SegmentedControlProps<T>) {
   const activeIndex = Math.max(0, options.findIndex(option => option.value === value));
